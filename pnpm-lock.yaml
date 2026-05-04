@@ -23,6 +23,9 @@ importers:
       amqplib:
         specifier: ^1.0.3
         version: 1.0.3
+      cpf-cnpj-validator:
+        specifier: ^2.1.0
+        version: 2.1.0(reflect-metadata@0.2.2)(zod@4.4.1)
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -924,6 +927,30 @@ packages:
   cookie@1.1.1:
     resolution: {integrity: sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==}
     engines: {node: '>=18'}
+
+  cpf-cnpj-validator@2.1.0:
+    resolution: {integrity: sha512-tgSVKy8EK8LMRYRtoTfPICQ5innN0go/aqokEAF66HW466MHDsjBGkyPOY0KmCJ+k7Jh0CG9m70YHp30yiOCLg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@angular/forms': '>=15'
+      class-validator: ^0.14.0 || ^0.15.0
+      joi: ^17.0.0
+      reflect-metadata: ^0.2.0
+      yup: ^1.0.0
+      zod: ^3.22.0 || ^4.0.0
+    peerDependenciesMeta:
+      '@angular/forms':
+        optional: true
+      class-validator:
+        optional: true
+      joi:
+        optional: true
+      reflect-metadata:
+        optional: true
+      yup:
+        optional: true
+      zod:
+        optional: true
 
   cross-env@10.1.0:
     resolution: {integrity: sha512-GsYosgnACZTADcmEyJctkJIoqAhHjttw7RsFrVoJNXbsWWqaq6Ym+7kZjq6mS45O0jij6vtiReppKQEtqWy6Dw==}
@@ -2776,6 +2803,11 @@ snapshots:
   convert-source-map@2.0.0: {}
 
   cookie@1.1.1: {}
+
+  cpf-cnpj-validator@2.1.0(reflect-metadata@0.2.2)(zod@4.4.1):
+    optionalDependencies:
+      reflect-metadata: 0.2.2
+      zod: 4.4.1
 
   cross-env@10.1.0:
     dependencies:

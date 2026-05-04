@@ -27,6 +27,7 @@
     "@fastify/swagger-ui": "^5.2.6",
     "@prisma/client": "^7.8.0",
     "amqplib": "^1.0.3",
+    "cpf-cnpj-validator": "^2.1.0",
     "date-fns": "^4.1.0",
     "dotenv": "^17.4.2",
     "fastify": "^5.8.5",
