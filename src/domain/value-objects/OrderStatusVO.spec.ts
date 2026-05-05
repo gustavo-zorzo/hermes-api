@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach } from "vitest";
-import { OrderStatus, OrderStatusVO } from "./OrderStatusVO.js";
+import { describe, it, expect } from "vitest";
+import { OrderStatusVO } from "./OrderStatusVO.js";
 import { DomainException } from "../../lib/exceptions/DomainException.js";
 
 describe("OrderStatusVO", () => {
