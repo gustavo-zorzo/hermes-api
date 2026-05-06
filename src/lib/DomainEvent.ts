@@ -1,10 +1,10 @@
 export abstract class DomainEvent<T> {
   eventType: string;
-  occuredAt: Date;
+  occurredAt: Date;
   payload: T;
   constructor(eventType: string, payload: T) {
     this.eventType = eventType;
-    this.occuredAt = new Date();
+    this.occurredAt = new Date();
     this.payload = payload;
   }
 }
