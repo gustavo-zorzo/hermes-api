@@ -6,7 +6,7 @@ import { MoneyVO } from "@domain/value-objects/MoneyVO.js";
 import type { EntityIDVO } from "../../lib/EntityIDVO.js";
 import { OrderCreatedEvent } from "@domain/events/OrderCreatedEvent.js";
 
-type OrderProps = {
+export type OrderProps = {
   customer: Customer;
   items: OrderItem[];
   status: OrderStatusVO;
