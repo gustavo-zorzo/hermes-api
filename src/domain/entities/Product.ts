@@ -3,7 +3,7 @@ import type { QuantityVO } from "@domain/value-objects/QuantityVO.js";
 import { Entity } from "../../lib/Entity.js";
 import type { EntityIDVO } from "../../lib/EntityIDVO.js";
 
-type ProductProps = {
+export type ProductProps = {
   name: string;
   description: string;
   price: MoneyVO;
