@@ -5,6 +5,7 @@ import { OrderStatusVO } from "@domain/value-objects/OrderStatusVO.js";
 import { MoneyVO } from "@domain/value-objects/MoneyVO.js";
 import type { EntityIDVO } from "../../lib/EntityIDVO.js";
 import { OrderCreatedEvent } from "@domain/events/OrderCreatedEvent.js";
+import { OrderCancelledEvent } from "@domain/events/OrderCancelledEvent.js";
 
 export type OrderProps = {
   customer: Customer;
@@ -21,6 +22,7 @@ export class Order extends AggregateRoot<OrderProps> {
         new OrderCreatedEvent({
           id: this.id.value,
           customer: {
+            id: this.props.customer.id.value,
             name: this.props.customer.props.name,
             document: {
               value: this.props.customer.props.document.value.value,
@@ -38,9 +40,9 @@ export class Order extends AggregateRoot<OrderProps> {
           },
           items: this.props.items.map((item) => {
             return {
+              productId: item.props.productId.value,
               quantity: item.props.quantity.value,
               price: item.props.price.value,
-              productId: item.props.productId.value,
             };
           }),
           status: this.props.status.value,
@@ -90,6 +92,38 @@ export class Order extends AggregateRoot<OrderProps> {
     );
   }
   cancel() {
+    this.raiseEvent(
+      new OrderCancelledEvent({
+        id: this.id.value,
+        customer: {
+          id: this.props.customer.id.value,
+          name: this.props.customer.props.name,
+          document: {
+            value: this.props.customer.props.document.value.value,
+            type: this.props.customer.props.document.value.type,
+          },
+          address: {
+            street: this.props.customer.props.address.value.street,
+            neighbourhood:
+              this.props.customer.props.address.value.neighbourhood,
+            city: this.props.customer.props.address.value.city,
+            state: this.props.customer.props.address.value.state.value,
+            zipcode: this.props.customer.props.address.value.zipcode.value,
+          },
+          email: this.props.customer.props.email.value,
+        },
+
+        items: this.props.items.map((item) => {
+          return {
+            productId: item.props.productId.value,
+            quantity: item.props.quantity.value,
+            price: item.props.price.value,
+          };
+        }),
+        totalPrice: this.props.totalPrice.value,
+      }),
+    );
+
     return new Order(
       {
         ...this.props,
