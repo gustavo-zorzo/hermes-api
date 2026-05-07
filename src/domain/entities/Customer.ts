@@ -4,7 +4,7 @@ import { Entity } from "../../lib/Entity.js";
 import type { EntityIDVO } from "../../lib/EntityIDVO.js";
 import type { EmailVO } from "@domain/value-objects/EmailVO.js";
 
-type CustomerProps = {
+export type CustomerProps = {
   name: string;
   document: DocumentTypeVO;
   address: AddressVO;
