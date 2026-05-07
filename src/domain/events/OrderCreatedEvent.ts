@@ -1,6 +1,6 @@
 import { DomainEvent } from "../../lib/DomainEvent.js";
 
-type OrderCreatedEventProps = {
+export type OrderCreatedEventProps = {
   id: string;
   customer: {
     id: string;
