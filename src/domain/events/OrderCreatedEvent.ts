@@ -3,6 +3,7 @@ import { DomainEvent } from "../../lib/DomainEvent.js";
 type OrderCreatedEventProps = {
   id: string;
   customer: {
+    id: string;
     name: string;
     document: { value: string; type: "CPF" | "CNPJ" };
     address: {
